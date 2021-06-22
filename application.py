@@ -7,7 +7,7 @@ def hello_world():
     return 'Hello World!!!'
 
 @application.route('/healthy')
-def hello_world():
+def healthy():
     return 'healthy'
 
 """
