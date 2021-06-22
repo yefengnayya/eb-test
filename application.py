@@ -6,6 +6,10 @@ application = Flask(__name__)
 def hello_world():
     return 'Hello World!!!'
 
+@application.route('/healthy')
+def hello_world():
+    return 'healthy'
+
 """
 @app.route('/callback')
 def hello() -> Response:
