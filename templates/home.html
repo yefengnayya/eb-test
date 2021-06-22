@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <script>
+            var x = location.hash;
+            x = x.substring(1, x.length);
+            keyValue = x.split('&');
+            
+            for(var i = 0; i < keyValue.length; i++) {
+                var str = keyValue[i];
+                if(str.indexOf("access_token") >= 0) {
+                    var access_token = str.substring(str.indexOf("=") + 1, str.length);
+                    //alert(access_token);
+                    alert(httpGet(access_token));
+                    break;
+                }
+            }
+            
+            function httpGet(token){
+                var xmlHttp = new XMLHttpRequest();
+                var url = "https://gyhot27101.execute-api.us-east-1.amazonaws.com/test/hello";
+                xmlHttp.open( "GET", url, false ); // false for synchronous request
+                xmlHttp.setRequestHeader("Authorize", token);
+                xmlHttp.send( null );
+                return xmlHttp.responseText;
+            }
+        </script>
+    </header>
+    <body>
+        <h1>My First Heading</h1>
+        <p>My first paragraph.</p>
+    </body>
+</html>
