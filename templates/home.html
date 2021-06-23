@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
     <header>
-        
     </header>
     <body>
-        
         <h1 id="id01">Token:</h1>
-        <input type="text" id='txtToken' value="aa" />
+        <textarea id='txtToken' rows="15" cols="100" ></textarea>
 
         <script>
             var x = location.hash;
@@ -17,14 +15,11 @@
                 var str = keyValue[i];
                 if(str.indexOf("access_token") >= 0) {
                     var access_token = str.substring(str.indexOf("=") + 1, str.length);
-                    alert(access_token);
-                    document.getElementById("txtToken").value = access_token;
+                    //alert(access_token);
+                    document.getElementById("txtToken").innerText = access_token;
                     break;
                 }
             }
-            
         </script>
-        
-        
     </body>
 </html>
