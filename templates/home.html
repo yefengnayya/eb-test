@@ -3,10 +3,33 @@
     <header>
     </header>
     <body>
-        <h1 id="id01">Token:</h1>
-        <textarea id='txtToken' rows="15" cols="100" ></textarea>
-
+        <h2>Token:</h2>
+        <textarea id='txtToken' rows="15" cols="100" ></textarea><br />
+        <a href="/api" >API</a>
         <script>
+            function setCookie(cname, cvalue, exseconds) {
+                const d = new Date();
+                d.setTime(d.getTime() + exseconds);
+                let expires = "expires="+d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function getCookie(cname) {
+                let name = cname + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            
             var x = location.hash;
             x = x.substring(1, x.length);
             keyValue = x.split('&');
@@ -15,11 +38,12 @@
                 var str = keyValue[i];
                 if(str.indexOf("access_token") >= 0) {
                     var access_token = str.substring(str.indexOf("=") + 1, str.length);
-                    //alert(access_token);
                     document.getElementById("txtToken").innerText = access_token;
+                    setCookie("access_token", access_token, 60*5*1000);
                     break;
                 }
             }
+
         </script>
     </body>
 </html>

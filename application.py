@@ -16,14 +16,13 @@ def healthy():
     return 'healthy'
 
 
-@application.route('/test')
-def test():
-    token = request.args.get('access_token')
-    
+@application.route('/api')
+def api():
+    token = request.cookies.get('access_token')
     header_data = {'Authorize': token}
     response = requests.get('https://gyhot27101.execute-api.us-east-1.amazonaws.com/test/hello', headers=header_data).content
     return response
-
+    
 
 @application.route('/callback')
 def callback() -> Response:
