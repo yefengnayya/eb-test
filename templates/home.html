@@ -39,7 +39,7 @@
                 if(str.indexOf("access_token") >= 0) {
                     var access_token = str.substring(str.indexOf("=") + 1, str.length);
                     document.getElementById("txtToken").innerText = access_token;
-                    setCookie("access_token", access_token, 60*5*1000);
+                    setCookie("access_token", access_token, 1000 * 60 * 60 * 10);
                     break;
                 }
             }
