@@ -19,7 +19,7 @@ def healthy():
 @application.route('/api')
 def api():
     token = request.cookies.get('access_token')
-    header_data = {'Authorization': token}
+    header_data = {'Authorization': 'Bearer ' + token}
     response = requests.get('https://l339s04yk5.execute-api.us-east-1.amazonaws.com/test/member', headers=header_data).content
     return response
     
