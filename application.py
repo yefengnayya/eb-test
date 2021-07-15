@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from flask.wrappers import Response
 import requests
+'''
 import time
 import re
 
@@ -11,7 +12,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
-
+'''
 
 application = Flask(__name__)
 
