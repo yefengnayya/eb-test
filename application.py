@@ -21,9 +21,9 @@ def hello_world():
     return 'Hello World!!!'
 
 
-@application.route('/healthy')
+@application.route('/health')
 def healthy():
-    return "healthy"
+    return "health"
 
 
 @application.route('/api')
